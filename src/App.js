@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
+import Toggle from 'react-toggle';
+import FlipMove from 'react-flip-move';
 
+import "react-toggle/style.css"
 import './App.css';
 
+
 function Square(props) {
-  const winner = props.winner ? 'winner' : '';
+  const winner = props.winner ? 'winner -green' : '-regular';
   const currentMove = props.isCurrentMove ? 'currentMove' : ''
   return (
     <button 
-      className={`${currentMove} ${winner} square`} 
+      className={`${currentMove} ${winner} square button center`} 
       onClick={props.onClick}>
       {props.value}
     </button>
@@ -101,14 +105,16 @@ class App extends Component {
         `Go to move #${move} ${location}` :
         'Go to game start';
       return (
-        <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
-        </li>
+          <li key={move}>
+            <button 
+              className="button -blue center"
+              onClick={() => this.jumpTo(move)}>{desc}</button>
+          </li>
       );
     });
 
     moves = this.state.reverse ? moves.reverse() : moves;
-
+    
     let status;
     if (winner) {
       status = 'Winner: ' + current.squares[winner[0]];
@@ -128,9 +134,15 @@ class App extends Component {
           />
         </div>
         <div className="game-info">
-          <div>{status}</div>
-          <div><input type="checkbox" name="" id="" onClick={() => this.setState({reverse: !this.state.reverse})}/></div>
-          <ol>{moves}</ol>
+          <div className="status">{status}</div>
+
+          <label className="toggle-line">
+            <span>Reverse </span>
+            <Toggle
+              className='reverse-toggle'
+              onChange={() => this.setState({reverse: !this.state.reverse})} />
+          </label>          
+          <FlipMove typeName="ul">{moves}</FlipMove>
         </div>
       </div>
     );
