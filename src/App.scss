@@ -34,7 +34,7 @@ body {
 
 .toggle-line {
   text-align: center;
-  font-size: 1em;
+  font-size: 1.5em;
 }
 
 .reverse-toggle.react-toggle--checked .react-toggle-track {
@@ -45,24 +45,6 @@ body {
   clear: both;
   content: "";
   display: table;
-}
-
-.square {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 32px;
-  line-height: 80px;
-  height: 80px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  width: 80px;
-}
-
-.square:focus {
-  outline: none;
 }
 
 .kbd-navigation .square:focus {
