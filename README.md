@@ -9,3 +9,6 @@ Fix NPM scripts
 UI improvements
 * Dark mode
 * redesign move list to be mobile friendly
+
+## Demo
+[Here](http://pleavitt.github.io/tic-tac-toe)
